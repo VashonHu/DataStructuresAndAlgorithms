@@ -1,15 +1,16 @@
 class BTreeNode(object):
-    def __init__(self, leaf = True):
+    def __init__(self, leaf=True):
         self.keys = []
         self.children = []
         self.leaf = leaf
         self.n = 0
-        
+
+
 class BTree(object):
-    def __init__(self, t = 4):
+    def __init__(self, t=4):
         self.t = t
         self.root = self.new_node()
-    
+
     def search(self, x, k):
         i = 0
         while i < x.n and k > x.keys[i]:
@@ -21,21 +22,21 @@ class BTree(object):
         else:
             return self.search(x.children[i], k)
 
-    def new_node(self, leaf = True):
+    def new_node(self, leaf=True):
         node = BTreeNode(leaf)
         for x in range(2 * self.t - 1):
             node.keys.append(None)
         for x in range(2 * self.t):
             node.children.append(None)
         return node
-        
+
     def split_child(self, x, i):
         z = self.new_node()
         y = x.children[i]
         z.leaf = y.leaf
 
-        for m , n in enumerate(range(self.t, self.t * 2 - 1)):
-           z.keys[m] = y.keys[n]
+        for m, n in enumerate(range(self.t, self.t * 2 - 1)):
+            z.keys[m] = y.keys[n]
         if not y.leaf:
             for m, n in enumerate(range(self.t, 2 * self.t)):
                 z.children[m] = y.children[n]
@@ -89,7 +90,9 @@ class BTree(object):
                     if x is not None:
                         print t.keys[x],
                 print
+
         traverse_real(self, self.root)
+
 
 if __name__ == "__main__":
     a = BTree()
@@ -102,11 +105,3 @@ if __name__ == "__main__":
     # i = 51
     # a.insert(51)
     print a.traverse()
-
-
-
-
-
-        
-        
-        

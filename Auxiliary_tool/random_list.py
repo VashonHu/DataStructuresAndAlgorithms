@@ -15,3 +15,6 @@ def random_list(max_size = 10, min_value = 30, ):
         swap_list(alist, x, random.randint(x + 1, max_size - 1))
 
     return alist
+
+if __name__ == "__main__":
+    pass

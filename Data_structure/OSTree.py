@@ -102,7 +102,7 @@ class RBTree(object):
             if i == r:
                 return tree
             elif i < r:
-                return os_select_real(self, tree.left, i)5
+                return os_select_real(self, tree.left, i)
             return os_select_real(self, tree.right, i - r)
 
         return os_select_real(self, self.tree, i)
@@ -125,4 +125,5 @@ if __name__ == "__main__":
         a.append(x)
 
     for x in range(3):
-        print a.os_select(x).data
+        pass
+    print a.os_select(x).data

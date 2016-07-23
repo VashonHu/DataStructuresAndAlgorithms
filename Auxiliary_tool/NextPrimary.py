@@ -11,3 +11,6 @@ def nextPrimary(n):
             return n
         else:
             n += 2
+
+if __name__ == "__main__":
+    pass
