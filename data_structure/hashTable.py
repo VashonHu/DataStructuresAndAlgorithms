@@ -1,4 +1,8 @@
-from Auxiliary_tool import NextPrimary
+from auxiliary_tool.nextPrimary import nextPrimary
+
+class TabelNode(object):
+    def __init__(self, key):
+        self.key = key
 
 class HashTable(object):
     def __init__(self, tabelSize=100):
@@ -6,7 +10,7 @@ class HashTable(object):
         self.tabelSize = self.realSize(tabelSize)
 
     def realSize(self, size):
-        size = NextPrimary.nextPrimary(size)
+        size = nextPrimary(size)
         for x in range(size):
             self.hashTable.append([])
         return size
@@ -20,21 +24,21 @@ class HashTable(object):
             return -1
         index = 0
         for x in repeatTable:
-            if x == k:
+            if x.key == k:
                 return index
             index += 1
         return -1
 
-    def insertion(self, k):
-        hashVaule = self.betterHash(k)
+    def insertion(self, item):
+        hashVaule = self.betterHash(item.key)
         repeatTable = self.hashTable[hashVaule]
-        if self.find(hashVaule, k) == -1 :
-            repeatTable.append(k)
+        if self.find(hashVaule, item.key) == -1 :
+            repeatTable.append(item)
 
-    def delete(self, k):
-        hashValue = self.betterHash(k)
+    def delete(self, item):
+        hashValue = self.betterHash(item.key)
         repeatTable = self.hashTable[hashValue]
-        index = self.find(hashValue, k)
+        index = self.find(hashValue, item.key)
         if index == -1:
             print "The key is not in the hashtable !"
         else:
@@ -42,19 +46,23 @@ class HashTable(object):
 
 
     def traerse(self):
-        for i in self.hashTable:
-            for j in i:
-                if j is not None:
-                    print j,
-            print
+        for r in self.hashTable:
+            for n in r:
+                if n is not None:
+                    print n.key,
+                print
+
+    def locationList(self, k):
+        hashVal = self.betterHash(k)
+        return self.hashTable[hashVal]
 
 if __name__ == "__main__":
     h = HashTable()
-    for x in range(100):
-        h.insertion(x)
+    for x in range(10):
+        h.insertion(TabelNode(x))
 
-    for x in range(70):
-        h.delete(x)
+    for x in range(9):
+        h.delete(TabelNode(x))
 
     h.traerse()
 

@@ -7,7 +7,7 @@ class Queue(object):
             self.__queue.append(0)
 
     def enqueue(self, val):
-        if self.__full():
+        if self.full():
             print "this Queue is full !"
             return -1
         else:
@@ -15,7 +15,7 @@ class Queue(object):
             self.__tail = self.__nextindex(self.__tail)
 
     def dequeue(self):
-        if self.__empty():
+        if self.empty():
             print "this Queue is empty!"
             return -1
         else:
@@ -30,8 +30,8 @@ class Queue(object):
             x += 1
         return x
 
-    def __empty(self):
+    def empty(self):
         return self.__head == self.__tail
 
-    def __full(self):
+    def full(self):
         return self.__head == self.__nextindex(self.__tail)
