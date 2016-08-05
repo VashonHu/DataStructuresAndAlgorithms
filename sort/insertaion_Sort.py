@@ -1,4 +1,4 @@
-import random
+from auxiliary_tool.random_list import random_list
 
 def insert_sort(alist):
     for i in range(1, len(alist)):
@@ -9,21 +9,6 @@ def insert_sort(alist):
             j -= 1
         alist[j + 1] = key
 
-    return alist
-
-def random_list(max_size = 100, min_value = 0, max_value = 5, repeat = 0):
-    alist = []
-    if repeat == 1:
-        notrepeat = 0
-    else:
-        notrepeat = 1
-
-    for i in range(max_size ):
-        if(min_value + repeat < max_value):
-            alist.append(random.randint(min_value + notrepeat, max_value))
-            notrepeat += 1
-        else:
-            print "random's range is wrong!\n"
     return alist
 
 if __name__ == "__main__":

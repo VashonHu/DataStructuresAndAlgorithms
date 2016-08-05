@@ -1,5 +1,4 @@
 import random
-import sys
 
 def insert_sort(alist):
     for i in range(1, len(alist)):
@@ -11,29 +10,6 @@ def insert_sort(alist):
         alist[j + 1] = key
 
     return alist
-
-
-def swap_list(alist, a, b):
-    alist[a], alist[b] = alist[b], alist[a]
-
-def random_list(max_size = 10, min_value = 30):
-    import random
-    import sys
-
-    alist = []
-    n = random.randrange(min_value)
-    for x in range(max_size):
-        n += random.randrange(3, 33, 3)
-        alist.append(n)
-
-    for x in range(max_size - 1):
-        swap_list(alist, x, random.randint(x + 1, max_size - 1))
-
-    return alist
-
-
-def list_swap(alist, a, b):
-    alist[a], alist[b] = alist[b], alist[a]
 
 def bucket_sort(alist):
     b = []
