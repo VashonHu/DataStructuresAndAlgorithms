@@ -23,7 +23,6 @@ def fib2(n):
 if __name__ == "__main__":
     print fib(5)
 
-
     # print fib2(5)
     # i = 1
     # for i, j in enumerate(range(1, 10)):
