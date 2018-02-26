@@ -1,5 +1,5 @@
 def nextPrimary(n):
-    if  n % 2 == 0:
+    if n % 2 == 0:
         n += 1
     while True:
         noPrimary = 0

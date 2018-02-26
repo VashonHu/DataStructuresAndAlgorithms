@@ -10,3 +10,7 @@ def shell_sort(alist):
                 k -= increment
             alist[k + increment] = key
         increment /= 2
+
+
+if __name__ == '__main__':
+    print(int(1/2))

@@ -1,6 +1,4 @@
-from auxiliary_tool.random_list import random_list
-
-def counting_sort(alist, max_value = 300):
+def counting_sort(alist, max_value=300):
     c = []
     for x in range(max_value):
         c.append(0)
@@ -13,9 +11,10 @@ def counting_sort(alist, max_value = 300):
 
     b = alist[:]
     for x in range(len(alist) - 1, -1, -1):
-        b[c[alist[x]] - 1]= alist[x]
+        b[c[alist[x]] - 1] = alist[x]
 
     return b
 
+
 if __name__ == "__main__":
-    print counting_sort( random_list(10, 100))
+    pass

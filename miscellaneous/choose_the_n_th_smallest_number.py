@@ -1,5 +1,5 @@
 def insert_sort(alist):
-    #go backward
+    # go backward
     for i in range(1, len(alist)):
         key = alist[i]
         j = i - 1
@@ -9,6 +9,7 @@ def insert_sort(alist):
         alist[j + 1] = key
 
     return alist
+
 
 def quick_sort(alist):
     return quick_sort_split(alist, 0, len(alist) - 1)
@@ -22,8 +23,8 @@ def quick_sort_split(alist, start, end):
     else:
         insert_sort(alist)
 
+
 def quick_sort_real(alist, start, end):
-    import random
     i = start - 1
     key = alist[end]
 
@@ -41,7 +42,6 @@ def swap_list(alist, a, b):
 
 def random_list(max_size=10, min_value=30):
     import random
-    import sys
 
     alist = []
     n = random.randrange(min_value)
@@ -53,6 +53,7 @@ def random_list(max_size=10, min_value=30):
         swap_list(alist, x, random.randint(x + 1, max_size - 1))
 
     return alist
+
 
 def select(alist, i):
     def select_real(p, r, i):
@@ -67,9 +68,12 @@ def select(alist, i):
 
     return select_real(0, len(alist) - 1, i - 1)
 
+
 if __name__ == "__main__":
     alist = random_list()
     b = alist[:]
     quick_sort(b)
-    print b
-    print select(alist, 3)
+    print
+    b
+    print
+    select(alist, 3)

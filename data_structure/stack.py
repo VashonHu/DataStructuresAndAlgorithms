@@ -10,9 +10,9 @@ class stack(object):
 
     def pop(self):
         if self.__empty():
-           print "this stack is underflow"
-           return -1
+            print("this stack is underflow")
+            return -1
 
-        element =  self.__stack[-1]
+        element = self.__stack[-1]
         del self.__stack[-1]
         return element

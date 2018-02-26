@@ -25,9 +25,9 @@ class Graph(object):
         result = self.findDot(dot)
         try:
             if result[0] >= 0:
-                raise ValueError, "The dot was already in the graph !"
-        except ValueError, e:
-            print e
+                raise (ValueError, "The dot was already in the graph !")
+        except ValueError as e:
+            print(e)
             return
         adjTable = [dot]
         result[1].append(adjTable)
@@ -36,9 +36,9 @@ class Graph(object):
         result = self.findDot(dot)
         try:
             if result[0] < 0:
-                raise ValueError, "The dot is not in the graph !"
-        except ValueError, e:
-            print e
+                raise (ValueError, "The dot is not in the graph !")
+        except ValueError as e:
+            print(e)
             return
         del result[1][result[0]]
 
@@ -46,18 +46,18 @@ class Graph(object):
         resultDot = self.findDot(dot)
         try:
             if resultDot[0] < 0:
-                raise ValueError, "The dot is not in the graph !"
-        except ValueError, e:
-            print e
+                raise (ValueError, "The dot is not in the graph !")
+        except ValueError as e:
+            print(e)
             return
 
         dotTable = resultDot[1]
         resultEdge = self.findEdge(dotTable, edge)
         try:
             if resultEdge[0] >= 0:
-                raise ValueError, "The edge was already in the adjTable of the dot !"
-        except ValueError, e:
-            print e
+                raise (ValueError, "The edge was already in the adjTable of the dot !")
+        except ValueError as e:
+            print(e)
             return
         dotTable.append(edge)
 
@@ -90,11 +90,11 @@ class Graph(object):
         for r in self.graph.hashTable:
             for adj in r:
                 if adj != []:
-                    print adj[0], ': ',
+                    print(adj[0], ': ', end='')
                     if len(adj) > 1:
                         for edge in adj:
-                            print edge,
-                    print
+                            print(edge, end=' ')
+                    print()
 
 
 if __name__ == "__main__":
@@ -104,24 +104,7 @@ if __name__ == "__main__":
 
     g.traverse()
 
-    print 'gggggggggggggggggggggggggggggggggggggggg'
-
     for x in range(12):
         g.deleteDot(x)
 
     g.traverse()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

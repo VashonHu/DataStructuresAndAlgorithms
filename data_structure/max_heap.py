@@ -1,6 +1,7 @@
 import sys
 import random
 
+
 class max_heap(object):
     def __init__(self):
         self.data = []
@@ -40,12 +41,12 @@ class max_heap(object):
 
     def build(self):
         self.size = self.length()
-        for x in range(self.size / 2, -1, -1):
+        for x in range(int(self.size / 2), -1, -1):
             self.max_heapiey(x)
 
-    def increase(self,i, key):
+    def increase(self, i, key):
         if self.data[i] >= key:
-            print "error, key value is too small!"
+            print("error, key value is too small!")
             return -1
         self.data[i] = key
         self.max_heapiey(i)
@@ -58,7 +59,7 @@ class max_heap(object):
         self.data.append(-sys.maxsize)
         self.increase(self.size - 1, key)
 
-    def auto_make(self, size = 10):
+    def auto_make(self, size=10):
         for x in range(size):
             self.insert(random.randrange(100))
         return self.data
@@ -76,7 +77,7 @@ class max_heap(object):
 
     def extract(self):
         if self.size < 1:
-            print "the heap is underflow!"
+            print("the heap is underflow!")
             return 0
         max = self.data[0]
         self.data[0] = self.data[self.size - 1]
@@ -86,8 +87,9 @@ class max_heap(object):
 
     def show_heap(self):
         for x in range(self.size):
-            print self.data[x],
-        print
+            print(self.data[x], end=' ')
+        print(' ')
+
 
 if __name__ == "__main__":
     a = max_heap()

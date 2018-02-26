@@ -1,8 +1,10 @@
 from auxiliary_tool.nextPrimary import nextPrimary
 
+
 class TabelNode(object):
     def __init__(self, key):
         self.key = key
+
 
 class HashTable(object):
     def __init__(self, tabelSize=100):
@@ -32,7 +34,7 @@ class HashTable(object):
     def insertion(self, item):
         hashVaule = self.betterHash(item.key)
         repeatTable = self.hashTable[hashVaule]
-        if self.find(hashVaule, item.key) == -1 :
+        if self.find(hashVaule, item.key) == -1:
             repeatTable.append(item)
 
     def delete(self, item):
@@ -40,21 +42,21 @@ class HashTable(object):
         repeatTable = self.hashTable[hashValue]
         index = self.find(hashValue, item.key)
         if index == -1:
-            print "The key is not in the hashtable !"
+            print("The key is not in the hashtable !")
         else:
             del repeatTable[index]
-
 
     def traerse(self):
         for r in self.hashTable:
             for n in r:
                 if n is not None:
-                    print n.key,
-                print
+                    print(n.key,end='')
+                print(' ')
 
     def locationList(self, k):
         hashVal = self.betterHash(k)
         return self.hashTable[hashVal]
+
 
 if __name__ == "__main__":
     h = HashTable()
@@ -65,4 +67,3 @@ if __name__ == "__main__":
         h.delete(TabelNode(x))
 
     h.traerse()
-

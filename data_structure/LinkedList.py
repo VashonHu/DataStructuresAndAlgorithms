@@ -1,5 +1,5 @@
 class ListNode(object):
-    def __init__(self, data, next = None):
+    def __init__(self, data, next=None):
         self.__data = data
         self.__next = next
 
@@ -15,9 +15,12 @@ class ListNode(object):
     def next(self, next):
         self.__next = next
 
+
 """
 the head node is the first element with value in the linked list,rather then a null node
 """
+
+
 class LinkedList(object):
     def __init__(self):
         self.__head = ListNode(None)
@@ -50,11 +53,11 @@ class LinkedList(object):
 
     def traverse(self):
         if self.is_empty():
-            print "the LinkedList is empty!"
+            print("the LinkedList is empty!")
         else:
             p = self.head.next
-            while p :
-                print p.data
+            while p:
+                print(p.data)
                 p = p.next
 
     def remove(self, value):
@@ -66,14 +69,10 @@ class LinkedList(object):
             pointer = pointer.next
 
         if pointer is None:
-            print "the value is in the Linked List!"
+            print("the value is in the Linked List!")
             return -1
 
         prepointer.next = pointer.next
 
         if pointer is self.__tail:
             self.__tail = prepointer
-
-
-
-

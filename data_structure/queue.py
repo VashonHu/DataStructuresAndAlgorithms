@@ -1,5 +1,5 @@
 class Queue(object):
-    def __init__(self, size = 100):
+    def __init__(self, size=100):
         self.__head = self.__tail = 0
         self.__queue = []
         self.__size = size
@@ -8,7 +8,7 @@ class Queue(object):
 
     def enqueue(self, val):
         if self.full():
-            print "this Queue is full !"
+            print("this Queue is full !")
             return -1
         else:
             self.__queue[self.__tail] = val
@@ -16,7 +16,7 @@ class Queue(object):
 
     def dequeue(self):
         if self.empty():
-            print "this Queue is empty!"
+            print("this Queue is empty!")
             return -1
         else:
             x = self.__queue[self.__head]

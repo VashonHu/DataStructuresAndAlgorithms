@@ -1,10 +1,11 @@
 class RBTNode(object):
-    def __init__(self, data, left = None, right = None, color = True, height = -1):
+    def __init__(self, data, left=None, right=None, color=True, height=-1):
         self.data = data
         self.left = left
         self.right = right
         self.color = color
         self.height = height
+
 
 class RBTree(object):
     def __init__(self):
@@ -14,7 +15,7 @@ class RBTree(object):
 
     def isRed(self, node):
         if node is None:
-             return False
+            return False
         return node.color
 
     def chageColor(self, node):
@@ -76,15 +77,17 @@ class RBTree(object):
         return node.height
 
     def traverse(self):
-        print "the tree is :",
+        print("the tree is :", end=' ')
+
         def traverse_aide(self, tree):
             if tree is not None:
                 traverse_aide(self, tree.left)
                 traverse_aide(self, tree.right)
-                print tree.data,
+                print(tree.data, end=' ')
 
         traverse_aide(self, self.tree)
-        print
+        print(' ')
+
 
 if __name__ == "__main__":
     a = RBTree()

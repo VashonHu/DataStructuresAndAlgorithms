@@ -1,5 +1,5 @@
 class AVLTreeNode(object):
-    def __init__(self, data, left = None, right = None, height = -1):
+    def __init__(self, data, left=None, right=None, height=-1):
         self.data = data
         self.left = left
         self.right = right
@@ -22,7 +22,7 @@ class AVLTree(object):
                 tree = AVLTreeNode(x)
             elif x < tree.data:
                 tree.left = apppend_aide(self, x, tree.left)
-                if self.height(tree.left) - self.height(tree.right) is  2:
+                if self.height(tree.left) - self.height(tree.right) is 2:
                     if x < tree.left.data:
                         tree = self.singleRotateWithLeft(tree)
                     else:
@@ -42,7 +42,7 @@ class AVLTree(object):
     def delete(self, item):
         def delete_aide(self, tree, item):
             if tree is None:
-                print "The item is not found!"
+                print("The item is not found!")
             elif item < tree.data:
                 tree.left = delete_aide(self, tree.left, item)
             elif item > tree.data:
@@ -73,14 +73,16 @@ class AVLTree(object):
             return tree
 
     def traverse(self):
-        print "the tree is :",
+        print("the tree is :", end=' ')
+
         def traverse_aide(self, tree):
             if tree is not None:
                 traverse_aide(self, tree.left)
                 traverse_aide(self, tree.right)
-                print tree.data,
+                print(tree.data, end="")
+
         traverse_aide(self, self.__tree)
-        print
+        print("")
 
     def singleRotateWithLeft(self, node_a):
         node_b = node_a.left
@@ -111,4 +113,3 @@ class AVLTree(object):
     def doubleRotateWithLeft(self, node_a):
         node_a.right = self.singleRotateWithLeft(node_a.right)
         return self.singleRotateWithRight(node_a)
-

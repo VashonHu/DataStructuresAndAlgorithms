@@ -4,5 +4,6 @@ def gcd(a, b):
     else:
         return gcd(b, a % b)
 
+
 if __name__ == "__main__":
-    print gcd(206, 40)
+    print(gcd(206, 40))

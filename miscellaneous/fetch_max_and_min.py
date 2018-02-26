@@ -42,5 +42,5 @@ def min_and_max(alist):
 
 if __name__ == "__main__":
     alist = random_list(9)
-    print alist
-    print min_and_max(alist)
+    print(alist)
+    print (min_and_max(alist))

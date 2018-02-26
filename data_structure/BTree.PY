@@ -88,8 +88,8 @@ class BTree(object):
                     traverse_real(self, t.children[x])
                 for x in range(t.n):
                     if x is not None:
-                        print t.keys[x],
-                print
+                        print(t.keys[x], end='')
+                print("")
 
         traverse_real(self, self.root)
 
@@ -104,4 +104,4 @@ if __name__ == "__main__":
 
     # i = 51
     # a.insert(51)
-    print a.traverse()
+    print(a.traverse(), end='')

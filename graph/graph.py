@@ -42,9 +42,9 @@ class Graph(object):
         nodeIndex = self.findNode(n.key)
         try:
             if nodeIndex < 0:
-                raise ValueError, "The node is not in the graph !"
-        except ValueError, e:
-            print e
+                raise( ValueError, "The node is not in the graph !")
+        except ValueError as e:
+            print(e)
             return
 
         self.addNode(e)
@@ -53,9 +53,9 @@ class Graph(object):
         offset = self.findEdge(node, e)
         try:
             if offset >= 0:
-                raise ValueError, "The edge was already in the node !"
-        except ValueError, e:
-            print e
+                raise( ValueError, "The edge was already in the node !")
+        except ValueError as e:
+            print(e)
             return
 
         node.adj.append(e)
@@ -65,18 +65,18 @@ class Graph(object):
         index = self.findNode(n.key)
         try:
             if index < 0:
-                raise ValueError, "The node is not in the graph !"
-        except ValueError, e:
-            print e
+                raise( ValueError, "The node is not in the graph !")
+        except ValueError as e:
+            print(e)
             return
 
         node = self.locationList(n.key)[index]
         offset = self.findEdge(node, e)
         try:
             if offset < 0:
-                raise ValueError, "The edge is not in the node !"
-        except ValueError, e:
-            print e
+                raise(ValueError, "The edge is not in the node !")
+        except ValueError as e:
+            print(e)
             return
 
         del node.adj[offset]
@@ -90,11 +90,11 @@ class Graph(object):
         for r in self.table.hashTable:
             for n in r:
                 if n is not None:
-                    print n.key,": ",
+                    print(n.key,": ", end=' ')
                     if n.adj != []:
                         for e in n.adj:
-                            print e.key,
-                print
+                            print(e.key, end=' ')
+                print(' ')
 
     def travreseNode(self):
         for r in self.table.hashTable:
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     for x in range(10):
         g.addNode(GraphNode(x))
 
-    print 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh'
+    print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
 
     for x in range(10):
         g.addEdge(GraphNode(x), GraphNode(x))
@@ -126,4 +126,4 @@ if __name__ == "__main__":
 
     g.traerse()
 
-    print [x.key for x in g.travreseNode()]
+    print( [x.key for x in g.travreseNode()])
