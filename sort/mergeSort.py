@@ -8,9 +8,8 @@ def merge_sort(alist):
 
 
 def split_merge(alist, start, end):
-    # print('start is {}, end is {}'.format(start, end))
     if start < end:
-        mid = int((start + end) / 2)
+        mid = (start + end) // 2
         split_merge(alist, start, mid)
         split_merge(alist, mid + 1, end)
         merge(alist, start, mid, end)
@@ -36,5 +35,6 @@ def merge(alist, start, mid, end):
 
 if __name__ == '__main__':
     a_list = random_list(10000)
-    print(merge_sort(a_list))
+    print(a_list)
+    merge_sort(a_list)
     print(a_list)

@@ -1,12 +1,9 @@
 def square_root(x):
     guess = 1.0
     next_guess = improve_guess(x, guess)
-    print('guess is {}, next_guess is {}'.format(guess, next_guess))
     while abs(x - guess * guess) > 0.1:
         guess = next_guess
         next_guess = improve_guess(x, guess)
-        print('guess is {}, next_guess is {}'.format(guess, next_guess))
-
     return guess
 
 
@@ -15,4 +12,4 @@ def improve_guess(x, guess):
 
 
 if __name__ == "__main__":
-    print(square_root(2))
+    print(square_root(5))

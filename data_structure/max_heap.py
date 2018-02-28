@@ -17,9 +17,10 @@ class max_heap(object):
         return index * 2 + 1
 
     def parent(self, index):
-        return index / 2
+        return int(index / 2)
 
     def max_heapiey(self, i):
+        ''' i 为新插入元素的在这个数组中的下标 '''
         l = self.left(i)
         r = self.right(i)
 
@@ -55,6 +56,12 @@ class max_heap(object):
             i = self.parent(i)
 
     def insert(self, key):
+        '''
+        向数组末尾添加一个元素, 再将其它的值增长到指定大小, 再对它的位置进行调整
+        :param i:
+        :param key:
+        :return:
+        '''
         self.size += 1
         self.data.append(-sys.maxsize)
         self.increase(self.size - 1, key)
@@ -80,7 +87,7 @@ class max_heap(object):
             print("the heap is underflow!")
             return 0
         max = self.data[0]
-        self.data[0] = self.data[self.size - 1]
+        self.data[0] = self.data[self.size - 1]  # 把最小的拉到最前面
         self.size -= 1
         self.max_heapiey(0)
         return max

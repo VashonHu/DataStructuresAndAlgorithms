@@ -14,14 +14,4 @@ def insert_sort(alist):
 
 
 if __name__ == "__main__":
-    pass
-
-
-
-
-
-
-
-
-
-
+    print(insert_sort(random_list()))

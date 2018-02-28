@@ -22,15 +22,15 @@ class AVLTree(object):
                 tree = AVLTreeNode(x)
             elif x < tree.data:
                 tree.left = apppend_aide(self, x, tree.left)
-                if self.height(tree.left) - self.height(tree.right) is 2:
-                    if x < tree.left.data:
+                if self.height(tree.left) - self.height(tree.right) == 2:  # 在等于1的时候不旋转
+                    if x < tree.left.data:  # 判断新加入的结点在当前节点的左边还是右边
                         tree = self.singleRotateWithLeft(tree)
                     else:
                         tree = self.doubleRotateWithLeft(tree)
             elif x > tree.data:
                 tree.right = apppend_aide(self, x, tree.right)
-                if self.height(tree.right) - self.height(tree.left) is 2:
-                    if x > tree.right.data:
+                if self.height(tree.right) - self.height(tree.left) == 2:
+                    if x > tree.right.data:  # 因为这是平衡树, 所以不需要考虑当前的tree存在右节点的情况
                         tree = self.singleRotateWithRight(tree)
                     else:
                         tree = self.doubleRotateWithRihgt(tree)
@@ -52,9 +52,9 @@ class AVLTree(object):
                 tree.right = delete_aide(self, tree.right, tree.data)
             else:
                 if tree.left is None:
-                    tree = tree.left
-                elif tree.right is None:
                     tree = tree.right
+                elif tree.right is None:
+                    tree = tree.left
 
             return tree
 
@@ -79,7 +79,7 @@ class AVLTree(object):
             if tree is not None:
                 traverse_aide(self, tree.left)
                 traverse_aide(self, tree.right)
-                print(tree.data, end="")
+                print(tree.data, end=" ")
 
         traverse_aide(self, self.__tree)
         print("")

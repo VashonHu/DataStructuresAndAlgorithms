@@ -1,30 +1,15 @@
-def random_list(max_size = 10, min_value = 30):
-    import random
-    import sys
+from auxiliary_tool.random_list import random_list
 
-    alist = []
-    n = random.randrange(min_value)
-    for x in range(max_size):
-        n += random.randrange(3, 33, 3)
-        alist.append(n)
-
-    for x in range(max_size - 1):
-        swap_list(alist, x, random.randint(x + 1, max_size - 1))
-
-    return alist
-
-def swap_list(alist, a, b):
-    alist[a], alist[b] = alist[b], alist[a]
 
 def min_and_max(alist):
-    max_n = min_n = this_max = this_min = alist[0]
+    max_n = min_n = alist[0]
 
-    if len(alist) % 2 == 0:
+    if len(alist) % 2 == 0:  # 因为元素个数可能小于2的情况, 所以加上这个判断
         max_n = max(alist[0], alist[1])
         min_n = min(alist[0], alist[1])
 
     i = 1
-    j = 2
+    j = 2  # 数组个数小于3时, 这个循环不会运行
     while j < len(alist):
         this_max = max(alist[i], alist[j])
         this_min = min(alist[i], alist[j])
@@ -40,7 +25,8 @@ def min_and_max(alist):
 
     return max_n, min_n
 
+
 if __name__ == "__main__":
-    alist = random_list(9)
+    alist = random_list(10)
     print(alist)
-    print (min_and_max(alist))
+    print(min_and_max(alist))

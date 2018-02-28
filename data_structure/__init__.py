@@ -1,1 +1,1 @@
-from . import AVLTree, BTree, hashTable, linkedList, max_heap, queue, redBlackTree, stack
+from . import AVLTree, BTree, hashTable, LinkedList, max_heap, queue, redBlackTree, stack

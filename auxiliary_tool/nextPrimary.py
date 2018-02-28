@@ -3,7 +3,7 @@ def nextPrimary(n):
         n += 1
     while True:
         noPrimary = 0
-        for i in range(3, n / 2 + 1, 2):
+        for i in range(3, int(n / 2) + 1, 2):
             if n % i == 0:
                 noPrimary = 1
                 break
@@ -12,5 +12,7 @@ def nextPrimary(n):
         else:
             n += 2
 
+
 if __name__ == "__main__":
-    pass
+    for i in range(10):
+        print(nextPrimary(i))

@@ -58,13 +58,14 @@ def random_list(max_size=10, min_value=30):
 def select(alist, i):
     def select_real(p, r, i):
         if p == r:
-            return alist[p]
+            return alist[p]  # 用与二分
         q = quick_sort_real(alist, p, r)
         if i == q:
             return alist[q]
         elif i < q:
             return select_real(p, q - 1, i)
-        return select_real(q + 1, r, i - q)
+        else:
+            return select_real(q + 1, r, i)
 
     return select_real(0, len(alist) - 1, i - 1)
 
@@ -73,7 +74,5 @@ if __name__ == "__main__":
     alist = random_list()
     b = alist[:]
     quick_sort(b)
-    print
-    b
-    print
-    select(alist, 3)
+    print(b)
+    print(select(alist, 10))

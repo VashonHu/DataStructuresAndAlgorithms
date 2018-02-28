@@ -14,12 +14,14 @@ def insert_sort(alist):
 
 
 def bucket_sort(alist):
+    # 构建一个数组, 数组元素从0到9
+    # 这里的桶排序只应用与小于1的数
     b = []
     for x in range(10):
         b.append([])
 
     for x in alist:
-        c = x * 10
+        c = x * 10  # x都是小于1的数
         b[int(x)].append(x)
 
     for x in range(10):
@@ -34,5 +36,7 @@ def bucket_sort(alist):
 
 if __name__ == "__main__":
     alist = []
-    for x in range(10):
+    for x in range(100):
         alist.append(random.random())
+    bucket_sort(alist)
+    print(alist)

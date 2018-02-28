@@ -19,7 +19,7 @@ class RBTree(object):
         return node.color
 
     def chageColor(self, node):
-        node.color = self.red
+        node.color = self.red  # color等于True时, 表示红色; 等于False时, 表示黑色
         node.left.color = node.right.color = self.black
         return node
 
@@ -57,12 +57,23 @@ class RBTree(object):
                 h.left = append_real(self, h.left, val)
             elif val > h.data:
                 h.right = append_real(self, h.right, val)
-
-            if self.isRed(h.right) and not self.isRed(h.left):
+            '''
+            1. 每个节点或红或黑
+            2. 每个叶子节点都是黑的
+            3. 根节点是黑色
+            4. 如果一个结点是红色的, 那么它的两个孩子都是黑色的
+            5. 对于每个结点, 到每个叶节点的简单路径上, 黑结点的数目都是相同的
+            
+            
+            1. 不存在连续的红链接
+            2. 红链接都是左链接
+            3. 
+            '''
+            if self.isRed(h.right) and not self.isRed(h.left):  # 如果左黑, 右红: 存在红色的右链接
                 h = self.rotateLeft(h)
-            if self.isRed(h.left) and self.isRed(h.left.left):
+            if self.isRed(h.left) and self.isRed(h.left.left):  # 左红, 左左红, 右旋转:存在连续的红链接
                 h = self.rotateRight(h)
-            if self.isRed(h.left) and self.isRed(h.right):
+            if self.isRed(h.left) and self.isRed(h.right):  # 左右都红, 转变颜色: 自己改为红色, 左右孩子都转为黑色
                 h = self.chageColor(h)
 
             h.height = max(self.height(h.right), self.height(h.left)) + 1
@@ -96,10 +107,3 @@ if __name__ == "__main__":
         a.append(x)
 
     a.traverse()
-
-    b = AVLTree()
-
-    for x in range(11):
-        b.append(x)
-
-    b.traverse()
