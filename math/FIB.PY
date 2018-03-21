@@ -23,6 +23,17 @@ def fib2(n):
     return sum
 
 
+def fib3(n):
+    a, b = 0, 1
+
+    if n < 1:
+        return a
+    else:
+        for _ in range(n - 1):
+            a, b = b, a + b
+        return b
+
+
 if __name__ == "__main__":
     print(fib(5))
 
